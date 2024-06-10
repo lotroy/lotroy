@@ -1,0 +1,13 @@
+from scipy.stats import binom
+
+# (a) What is the probability that she will get call from at least 3 universities?
+n = 8
+p = 0.42
+k = 3
+prob_at_least_3 = 1 - binom.cdf(k - 1, n, p)
+print(f'The probability that she will get call from at least 3 universities is: {prob_at_least_3:.4f}')
+
+# (b) What is the probability that she will get calls from exactly 4 universities?
+k = 4
+prob_exactly_4 = binom.pmf(k, n, p)
+print(f'The probability that she will get calls from exactly 4 universities is: {prob_exactly_4:.4f}')
