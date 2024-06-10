@@ -1,0 +1,23 @@
+from scipy.stats import norm
+
+
+n = 60  # sample size
+x_bar = 4998.1  # sample mean
+sigma = 1.30  # population standard deviation
+mu_0 = 5000  # null hypothesis mean
+
+
+z_score = (x_bar - mu_0) / (sigma / np.sqrt(n))
+
+
+p_value = 1 - norm.cdf(z_score)
+
+print(f'The z-score is: {z_score:.4f}')
+print(f'The p-value is: {p_value:.4f}')
+
+
+alpha = 0.05
+if p_value < alpha:
+    print('Reject the null hypothesis. The average amount of water filled by the machine is less than 5000 cm3.')
+else:
+    print('Fail to reject the null hypothesis. The average amount of water filled by the machine is at least 5000 cm3.')
