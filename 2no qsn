@@ -1,13 +1,13 @@
-from scipy.stats import binom
+import math
+from scipy.stats import poisson
 
 
-n = 8
-p = 0.42
-k = 3
-prob_at_least_3 = 1 - binom.cdf(k - 1, n, p)
-print(f'The probability that she will get call from at least 3 universities is: {prob_at_least_3:.4f}')
+lambda_val = 25
+k = 20
+prob_exactly_20 = poisson.pmf(k, lambda_val)
+print(f'The probability that the number of returns is exactly 20 in a day is: {prob_exactly_20:.4f}')
 
 
-k = 4
-prob_exactly_4 = binom.pmf(k, n, p)
-print(f'The probability that she will get calls from exactly 4 universities is: {prob_exactly_4:.4f}')
+n_returns = 50
+expected_days = n_returns / lambda_val
+print(f'The expected number of days until there are 50 returns is: {expected_days:.2f}')
