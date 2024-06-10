@@ -1,5 +1,4 @@
 from scipy.stats import norm
-import numpy as np
 
 
 n = 60  
@@ -8,8 +7,10 @@ sigma = 1.30
 mu_0 = 5000  
 
 
-z_score = (x_bar - mu_0) / (sigma / np.sqrt(n))
-p_value = norm.cdf(z_score)
+z_score = (x_bar - mu_0) / (sigma / (n ** 0.5))
+
+
+p_value = 1 - norm.cdf(z_score)
 
 print(f'The z-score is: {z_score:.4f}')
 print(f'The p-value is: {p_value:.4f}')
