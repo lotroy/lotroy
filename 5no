@@ -1,10 +1,10 @@
 from scipy.stats import norm
 
 
-n = 60  # sample size
-x_bar = 4998.1  # sample mean
-sigma = 1.30  # population standard deviation
-mu_0 = 5000  # null hypothesis mean
+n = 60  
+x_bar = 4998.1 
+sigma = 1.30  
+mu_0 = 5000  
 
 
 z_score = (x_bar - mu_0) / (sigma / np.sqrt(n))
