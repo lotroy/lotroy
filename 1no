@@ -1,0 +1,18 @@
+import math
+from scipy.stats import poisson
+
+# (a) Calculate the probability that the number of returns exceeds 30 in a day
+lambda_val = 25
+k = 30
+prob_exceeds_30 = 1 - poisson.cdf(k, lambda_val)
+print(f'The probability that the number of returns exceeds 30 in a day is: {prob_exceeds_30:.4f}')
+
+# (b) If the chance of fraudulent return is 0.05, calculate the probability that there will be at least 2 
+# fraudulent returns in any given day
+p_fraudulent = 0.05
+lambda_val_fraudulent = lambda_val * p_fraudulent
+k_fraudulent = 2
+prob_at_least_2_fraudulent = 1 - poisson.cdf(k_fraudulent - 1, lambda_val_fraudulent)
+print(f'The probability that there will be at least 2 fraudulent returns in any given day is: {prob_at_least_2_fraudulent:.4f}')
+
+
