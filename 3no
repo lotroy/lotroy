@@ -1,0 +1,14 @@
+import math
+from scipy.stats import expon
+
+# (a) Calculate the probability that the system will fail before 85 hrs
+mtbf = 85
+t = 85
+rate_param = 1 / mtbf
+prob_fail_before_85 = expon.cdf(t, scale=mtbf)
+print(f'The probability that the system will fail before 85 hrs is: {prob_fail_before_85:.4f}')
+
+# (b) Calculate the probability that it will not fail up to 150 hrs
+t = 150
+prob_not_fail_up_to_150 = expon.sf(t, scale=mtbf)
+print(f'The probability that it will not fail up to 150 hrs is: {prob_not_fail_up_to_150:.4f}')
