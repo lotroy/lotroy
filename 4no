@@ -1,0 +1,24 @@
+from scipy.stats import norm
+
+mean = 38
+std_dev = 5
+
+
+x = 50
+z_score = (x - mean) / std_dev
+prob_more_than_50 = 1 - norm.cdf(z_score)
+print(f'The proportion of farmers spraying more than 50 liters of pesticide in a week is: {prob_more_than_50:.4f}')
+
+
+x = 10
+z_score = (x - mean) / std_dev
+prob_less_than_10 = norm.cdf(z_score)
+print(f'The proportion of farmers spraying less than 10 liters is: {prob_less_than_10:.4f}')
+
+
+x1 = 30
+x2 = 60
+z_score1 = (x1 - mean) / std_dev
+z_score2 = (x2 - mean) / std_dev
+prob_between_30_and_60 = norm.cdf(z_score2) - norm.cdf(z_score1)
+print(f'The proportion of farmers spraying between 30 liters and 60 liters is: {prob_between_30_and_60:.4f}')
